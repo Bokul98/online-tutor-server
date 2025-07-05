@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Tutorial</title>
+</head>
+<body>
+  <h2>Add Tutorial</h2>
+  <form id="tutorialForm">
+    <label>User Name: <input type="text" id="userName" required></label><br>
+    <label>Email: <input type="email" id="email" required></label><br>
+    <label>Image URL: <input type="text" id="image" required></label><br>
+    <label>Language: <input type="text" id="language" required></label><br>
+    <label>Price: <input type="number" id="price" required></label><br>
+    <label>Description: <textarea id="description" required></textarea></label><br>
+    <button type="submit">Submit</button>
+  </form>
+  <div id="result"></div>
+  <script>
+    document.getElementById('tutorialForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = {
+        userName: document.getElementById('userName').value,
+        email: document.getElementById('email').value,
+        image: document.getElementById('image').value,
+        language: document.getElementById('language').value,
+        price: document.getElementById('price').value,
+        description: document.getElementById('description').value
+      };
+      const res = await fetch('/api/tutorials', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const result = await res.json();
+      document.getElementById('result').innerText = res.ok ? 'Tutorial added!' : result.error;
+    });
+  </script>
+</body>
+</html>

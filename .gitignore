@@ -1,0 +1,6 @@
+node_modules
+.env
+.vercel
+firebase.json
+firebase-config.json
+

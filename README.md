@@ -105,17 +105,6 @@ Routes that require JWT authentication:
 - Booking creation and management
 - Tutorial creation and editing (user-specific)
 
-## API Endpoints
-
-### Tutorial Management
-- `GET /api/tutorials` - Get all tutorials
-- `POST /api/tutorials` - Create a new tutorial
-- `GET /api/tutorials/my-tutorials` - Get user's tutorials (protected)
-- `GET /api/tutorials/tutor-details/:id` - Get tutor details by ID
-- `PUT /api/tutorials/edit/:id` - Update tutorial by ID
-- `DELETE /api/tutorials/:id` - Delete tutorial by ID
-- `PATCH /api/tutorials/review/:id` - Increment review count
-
 ### User Management
 - `POST /api/users` - User registration and management
 - Authentication endpoints for login/logout
